@@ -22,6 +22,8 @@ export default function App() {
 
   if (fontsLoaded) {
     SplashScreen.hideAsync()
+  } else {
+    return null
   }
 
   return (
