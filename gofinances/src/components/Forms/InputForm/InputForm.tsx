@@ -3,14 +3,15 @@ import { Control, Controller } from "react-hook-form"
 
 import { Input } from "../Inputs"
 
-import { Container } from "./style"
+import { Container, Error } from "./style"
 
 interface IProps extends TextInputProps {
   control: Control
   name: string
+  error?: string
 }
 
-export const InputForm = ({ control, name, ...rest }: IProps) => {
+export const InputForm = ({ control, name, error, ...rest }: IProps) => {
   return (
     <Container>
       <Controller
@@ -20,6 +21,8 @@ export const InputForm = ({ control, name, ...rest }: IProps) => {
         )}
         name={name}
       />
+
+      {error && <Error>{error}</Error>}
     </Container>
   )
 }
