@@ -107,3 +107,9 @@ export const TransactionsList = styled(FlatList).attrs({
     paddingBottom: getBottomSpace(),
   },
 })`` as unknown as typeof FlatList
+
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`
