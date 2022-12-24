@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import { useFocusEffect } from "@react-navigation/native"
 
 import {
   TransactionCard,
@@ -29,7 +30,7 @@ export interface IDataListProps extends ITransactionCardProps {
 }
 
 export const Dashboard = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<IDataListProps[]>([])
 
   async function loadTransactions() {
     const collectionKey = "@gofinances:transactions"
@@ -66,6 +67,12 @@ export const Dashboard = () => {
   useEffect(() => {
     loadTransactions()
   }, [])
+
+  useFocusEffect(
+    useCallback(() => {
+      loadTransactions()
+    }, [])
+  )
 
   return (
     <Container>

@@ -101,11 +101,9 @@ export const Title = styled.Text`
   margin-bottom: 16px;
 `
 
-export const TransactionsList = styled(
-  FlatList as new () => FlatList<IDataListProps>
-).attrs({
+export const TransactionsList = styled(FlatList).attrs({
   showsVerticalScrollIndicator: false,
   contentContainerStyle: {
     paddingBottom: getBottomSpace(),
   },
-})``
+})`` as unknown as typeof FlatList
